@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "RentClearly Backend API",
+  "main": "/api/handler.ts",
+  "repository": "https://gitlab.com/rent_clearly/api",
+  "author": "george.bolmida",
+  "license": "Proprietary",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.26.0",
+    "@vercel/node": "^2.15.2",
+    "zod": "^3.21.4"
+  }
+}
