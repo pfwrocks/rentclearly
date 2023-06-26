@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import supa_client from '../../utils/supabase_client';
+import supa_client from '../../utils/_supabase_client';
 
 export default async (request: VercelRequest, response: VercelResponse) => {
     try {
