@@ -1,38 +1,43 @@
 # RentClearly App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The primary RentClearly App codebase
+## Steps to get running locally
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+1. Install dependencies 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+yarn install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. Install supabase CLI
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+brew install supabase/tap/supabase
 ```
 
-## Building
-
-To create a production version of your app:
-
+3. Start up a local supabase instance (note, you can stop and start as needed)
 ```bash
-npm run build
+supabase start
 ```
 
-You can preview the production build with `npm run preview`.
+4. Use the DB URL value of the supabase start/status command in a .env file, use the .env.example file for reference
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Note: You can view the local supabase UI from http://localhost:54323
+
+5. Push latest Prisma schema to DB
+```bash
+prisma db push
+```
+
+6. Generate a new Prisma client (I believe you need to do this each time you change the schema along with the `db push`)
+```bash
+prisma generate
+```
+
+7. Now pre-seed the database for local testing
+```bash
+prisma db seed
+```
+
+8. Now you can run the development server
+```bash
+yarn run dev
+```

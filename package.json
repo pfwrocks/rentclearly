@@ -38,12 +38,14 @@
 		"@trpc/client": "^10.33.0",
 		"@trpc/server": "^10.33.0",
 		"delay": "^6.0.0",
+		"prisma": "^4.16.1",
+		"supabase": "^1.75.2",
 		"trpc-sveltekit": "^3.5.14",
 		"trpc-transformer": "^2.3.6",
 		"zod": "^3.21.4"
 	},
 	"type": "module",
 	"prisma": {
-		"seed": "ts-node prisma/seed.ts"
+		"seed": "node --loader ts-node/esm prisma/seed.ts"
 	}
 }

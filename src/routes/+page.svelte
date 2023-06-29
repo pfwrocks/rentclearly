@@ -6,8 +6,6 @@
 
     // TRPC Testing
     import { trpc } from '$lib/trpc/client';
-    import type { RouterInputs, RouterOutputs } from '$lib/trpc/router';
-    import { TRPCClientError } from '@trpc/client';
 
     let res = null;
     let buttonText = 'press the button to load data';
