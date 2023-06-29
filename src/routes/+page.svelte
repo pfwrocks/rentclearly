@@ -1,11 +1,13 @@
-<script>
+<script lang="ts">
 	import ApartmentCard from "../components/ApartmentCard.svelte";
     import Search from "../components/Search.svelte";
+    import { page } from '$app/stores';
+
 
     // TRPC Testing
-    import { page } from '$app/stores';
     import { trpc } from '$lib/trpc/client';
-    import { t } from "$lib/trpc/t";
+    import type { RouterInputs, RouterOutputs } from '$lib/trpc/router';
+    import { TRPCClientError } from '@trpc/client';
 
     let res = null;
     let buttonText = 'press the button to load data';
