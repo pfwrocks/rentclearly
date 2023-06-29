@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite --port $PORT",
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
@@ -32,9 +32,12 @@
 		"vitest": "^0.25.3"
 	},
 	"dependencies": {
-		"@trpc/client": "^10.32.0",
-		"@trpc/server": "^10.32.0",
-		"trpc-sveltekit": "^3.5.14"
+		"@trpc/client": "^10.33.0",
+		"@trpc/server": "^10.33.0",
+		"delay": "^6.0.0",
+		"trpc-sveltekit": "^3.5.14",
+		"trpc-transformer": "^2.3.6",
+		"zod": "^3.21.4"
 	},
 	"type": "module"
 }
