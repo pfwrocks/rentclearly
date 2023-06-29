@@ -5,6 +5,7 @@
     // TRPC Testing
     import { page } from '$app/stores';
     import { trpc } from '$lib/trpc/client';
+    import { t } from "$lib/trpc/t";
 
     let res = null;
     let buttonText = 'press the button to load data';

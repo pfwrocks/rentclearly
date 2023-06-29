@@ -1,10 +1,7 @@
-import { t } from '$lib/trpc/t';
+import { createTRPCRouter, publicProcedure } from '$lib/trpc/t';
 
-export const apartments = t.router({
-    list: t.procedure
-        .query(() => {
-            return {
-              message: 'hello',
-            };
-        })
+export const apartments = createTRPCRouter({
+    list: publicProcedure.query(({ ctx }) => {
+      return ctx.prisma.example.findMany();
+    }),
 });

@@ -32,6 +32,7 @@
 		"vitest": "^0.25.3"
 	},
 	"dependencies": {
+		"@prisma/client": "^4.16.1",
 		"@trpc/client": "^10.33.0",
 		"@trpc/server": "^10.33.0",
 		"delay": "^6.0.0",
