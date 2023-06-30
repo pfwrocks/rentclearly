@@ -1,6 +1,22 @@
-<script>
+<script lang="ts">
 	import ApartmentCard from "../components/ApartmentCard.svelte";
-import Search from "../components/Search.svelte";
+    import Search from "../components/Search.svelte";
+    import { page } from '$app/stores';
+
+
+    // TRPC Testing
+    import { trpc } from '$lib/trpc/client';
+
+    let res = null;
+    let buttonText = 'press the button to load data';
+    let loading = false;
+
+    const loadData = async () => {
+      loading = true;
+      res = await trpc($page).apartments.list.query();
+      buttonText = JSON.stringify(res);
+      loading = false;
+    };
 
 </script>
 <header>
@@ -9,6 +25,16 @@ import Search from "../components/Search.svelte";
       <h2>Uncovering how much an apartment <strong class="primary">really</strong> costs</h2>
     </hgroup>
 </header>
+
+<!-- trpc testing -->
+<a
+  href="#load"
+  role="button"
+  class="secondary"
+  aria-busy={loading}
+  on:click|preventDefault={loadData}>Load</a
+>
+<p>{buttonText}</p>
 
 <main>
     <section>
