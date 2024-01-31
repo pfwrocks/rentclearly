@@ -1,43 +1,66 @@
 # RentClearly App
 
-The primary RentClearly App codebase
-## Steps to get running locally
+## Background
+RentClearly is an innovative application designed to foster transparency in the rental property market. It enables users to share anonymized rental agreements, allowing others to see the actual "final" price of rental properties. This initiative helps potential renters make informed decisions by understanding real-world rental costs.
 
-1. Install dependencies 
-```bash
-yarn install
-```
+## Getting Started with RentClearly
 
-2. Install supabase CLI
-```bash
-brew install supabase/tap/supabase
-```
+This repository contains the primary codebase for the RentClearly App. Follow these steps to set up the application locally.
 
-3. Start up a local supabase instance (note, you can stop and start as needed)
-```bash
-supabase start
-```
+### Prerequisites
 
-4. Use the DB URL value of the supabase start/status command in a .env file, use the .env.example file for reference
+- Yarn package manager
+- Supabase CLI
+- Golang (for loading test data)
 
-Note: You can view the local supabase UI from http://localhost:54323
+### Initial Setup
 
-5. Push latest Prisma schema to DB
-```bash
-prisma db push
-```
+1. **Install Dependencies**: Run the following command to install the necessary dependencies.
+   ```bash
+   yarn install
+   ```
 
-6. Generate a new Prisma client (I believe you need to do this each time you change the schema along with the `db push`)
-```bash
-prisma generate
-```
+2. **Install Supabase CLI**: Use Homebrew to install the Supabase CLI.
+   ```bash
+   brew install supabase/tap/supabase
+   ```
 
-7. Now pre-seed the database for local testing
-```bash
-prisma db seed
-```
+3. **Start Local Supabase Instance**: You can start and stop this instance as needed.
+   ```bash
+   supabase start
+   ```
+   - **Note**: Access the local Supabase UI at http://localhost:54323
 
-8. Now you can run the development server
-```bash
-yarn run dev
-```
+4. **Configure Environment Variables**: Update your `.env` file using the DB URL from the `supabase start/status` command. Refer to `.env.example` for guidance.
+
+5. **Sync Prisma Schema to Database**: This step ensures your database schema is up to date.
+   ```bash
+   yarn sync
+   ```
+
+6. **Generate New Prisma Client**: Perform this step each time the schema is changed.
+   ```bash
+   yarn generate
+   ```
+
+### Loading Local Test Data
+
+1. **Install Golang**: Follow the instructions at [Golang Installation Guide](https://go.dev/doc/install).
+
+2. **Run the Scraper**:
+   - In the `scraper/` directory, execute:
+     ```bash
+     go mod tidy
+     go run main.go
+     ```
+
+3. **Seed the Database**:
+   - From the root of the repository, run:
+     ```bash
+     yarn seed
+     ```
+
+4. **View Test Data**:
+   - Use `yarn studio` to view all the test data loaded in.
+
+With these steps, you should have a fully functional local instance of the RentClearly App.
